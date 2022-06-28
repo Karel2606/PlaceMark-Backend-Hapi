@@ -1,0 +1,36 @@
+{
+  "name": "placemark-backend-hapi",
+  "version": "1.0.0",
+  "description": "API for creating Point-of-interests",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/server.js ",
+    "dev": "npx nodemon src/server.js",
+    "lint": "npx eslint . --ext .js",
+    "test": "npx mocha --ui tdd test/**/*.js"
+  },
+  "author": "Karel Fischbein",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/boom": "^9.1.4",
+    "@hapi/cookie": "^11.0.2",
+    "@hapi/hapi": "^20.2.2",
+    "@hapi/inert": "^6.0.5",
+    "dotenv": "^16.0.0",
+    "mais-mongoose-seeder": "^1.0.7",
+    "mongoose": "^6.3.1",
+    "npm-check-updates": "^12.5.11"
+  },
+  "devDependencies": {
+    "axios": "^0.27.1",
+    "chai": "^4.3.6",
+    "eslint": "^8.18.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "mocha": "^9.2.2",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.7.1"
+  }
+}
