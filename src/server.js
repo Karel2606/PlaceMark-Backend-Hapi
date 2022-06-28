@@ -1,11 +1,13 @@
 import Hapi from "@hapi/hapi";
 import Inert from "@hapi/inert";
 import Cookie from "@hapi/cookie";
-
+import jwt from "hapi-auth-jwt2";
 import dotenv from "dotenv";
 import path from "path";
 import { fileURLToPath } from "url";
+import { validate } from "./api/jwt-utils.js";
 import { accountsController } from "./controllers/accounts-controller.js";
+import { apiRoutes } from "./api-routes.js";
 import { db } from "./models/db.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -26,19 +28,17 @@ async function init() {
   await server.register(Cookie);
 
 
-  server.auth.strategy("session", "cookie", {
-    cookie: {
-      name: process.env.cookie_name,
-      password: process.env.cookie_password,
-      isSecure: false,
-    },
-    redirectTo: "/",
-    validateFunc: accountsController.validate,
+  server.auth.strategy("jwt", "jwt", {
+    key: process.env.cookie_password,
+    validate: validate,
+    verifyOptions: { algorithms: ["HS256"] },
   });
   server.auth.default("session");
 
   db.init("mongo");
 
+  server.route(apiRoutes);
+  
   await server.start();
   console.log(`Server running at: ${server.info.uri}`);
 }

@@ -18,6 +18,8 @@
     "@hapi/hapi": "^20.2.2",
     "@hapi/inert": "^6.0.5",
     "dotenv": "^16.0.0",
+    "hapi-auth-jwt2": "^10.2.0",
+    "jsonwebtoken": "^8.5.1",
     "mais-mongoose-seeder": "^1.0.7",
     "mongoose": "^6.3.1",
     "npm-check-updates": "^12.5.11"
