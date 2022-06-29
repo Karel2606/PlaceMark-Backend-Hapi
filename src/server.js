@@ -26,19 +26,19 @@ async function init() {
 
   await server.register(Inert);
   await server.register(Cookie);
-
+  await server.register(jwt);
 
   server.auth.strategy("jwt", "jwt", {
     key: process.env.cookie_password,
     validate: validate,
     verifyOptions: { algorithms: ["HS256"] },
   });
-  server.auth.default("session");
+  server.auth.default("jwt");
 
   db.init("mongo");
 
   server.route(apiRoutes);
-  
+
   await server.start();
   console.log(`Server running at: ${server.info.uri}`);
 }

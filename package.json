@@ -25,7 +25,7 @@
     "npm-check-updates": "^12.5.11"
   },
   "devDependencies": {
-    "axios": "^0.27.1",
+    "axios": "^0.27.2",
     "chai": "^4.3.6",
     "eslint": "^8.18.0",
     "eslint-config-airbnb-base": "^15.0.0",
