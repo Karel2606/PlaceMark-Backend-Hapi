@@ -4,13 +4,13 @@ export const accountsController = {
   index: {
     auth: false,
     handler: function (request, h) {
-      return h.view("Main", { title: "Welcome to Donation" });
+      return h.view("Main", { title: "Welcome to PlaceMark" });
     },
   },
   showSignup: {
     auth: false,
     handler: function (request, h) {
-      return h.view("Signup", { title: "Sign up for Donation" });
+      return h.view("Signup", { title: "Sign up for PlaceMark" });
     },
   },
   signup: {
@@ -36,7 +36,7 @@ export const accountsController = {
         return h.redirect("/");
       }
       request.cookieAuth.set({ id: user._id });
-      return h.redirect("/donate");
+      return h.redirect("/viewpoint");
     },
   },
   logout: {
