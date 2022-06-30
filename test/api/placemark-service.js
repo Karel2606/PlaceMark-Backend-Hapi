@@ -37,4 +37,34 @@ export const placemarkService = {
   async clearAuth() {
     axios.defaults.headers.common.Authorization = "";
   },
+
+  async getAllViewpoints() {
+    const res = await axios.get(`${this.placemarkUrl}/api/viewpoint`);
+    return res.data;
+  },
+
+  async getViewpoint(id) {
+    const res = await axios.get(`${this.placemarkUrl}/api/viewpoint/${id}`);
+    return res.data;
+  },
+
+  async getViewpointsByUser(id) {
+    const res = await axios.get(`${this.placemarkUrl}/api/viewpoint/user/${id}`);
+    return res.data;
+  },
+
+  async createViewpoint(placemark) {
+    const res = await axios.post(`${this.placemarkUrl}/api/viewpoint/user/${id}`, placemark);
+    return res.data;
+  },
+
+  async deleteViewpoint(id) {
+    const res = await axios.delete(`${this.placemarkUrl}/api/viewpoint/${id}`);
+    return res;
+  },
+
+  async deleteAllViewpoints() {
+    const res = await axios.delete(`${this.placemarkUrl}/api/viewpoint`);
+    return res.data;
+  },
 };

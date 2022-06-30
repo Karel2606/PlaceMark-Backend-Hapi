@@ -17,4 +17,4 @@ const viewPointSchema = new Schema({
   },
 });
 
-export const ViewPoint = Mongoose.model("Viewpoint", viewPointSchema);
+export const ViewPoint = Mongoose.model("ViewPoint", viewPointSchema);
